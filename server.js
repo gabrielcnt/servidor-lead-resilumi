@@ -13,7 +13,8 @@ app.use(express.static('public'))
 
 // Rota para capturar os leads
 app.post("/lead", async (req, res) => {
-    const { nome, email } = req.body;
+    const { attributes, email } = req.body;
+    const nome = attributes?.FIRSTNAME;
     
     console.log("Recebido lead:", { nome, email });
     
